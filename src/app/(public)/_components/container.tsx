@@ -148,7 +148,7 @@ export default function Container() {
                       <FormControl>
                         <Input
                           type="email"
-                          placeholder="hi@filanita.com"
+                          placeholder="randi@gmail.com"
                           {...field}
                         />
                       </FormControl>
