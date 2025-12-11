@@ -18,10 +18,10 @@ const fontPoppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_FE_URL),
   title: "CAK Investment Club",
-  description: "Your learning investment platform",
+  description: "Your learning investment community",
   openGraph: {
     title: "CAK Investment Club",
-    description: "Your learning investment platform",
+    description: "Your learning investment community",
     url: "https://cakinvestmentclub.com/",
     images: [
       {
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "CAK Investment Club",
-    description: "Your learning investment platform",
+    description: "Your learning investment community",
     images: [
       {
         url: "/banner.png",

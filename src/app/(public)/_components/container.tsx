@@ -119,7 +119,7 @@ export default function Container() {
                   </h1>
                   <p className="text-muted-foreground mt-2 text-xs sm:text-sm">
                     Masukkan data diri kamu untuk bergabung waitlist dan
-                    dapatkan akses ke platform kami.
+                    dapatkan akses ke community kami.
                   </p>
                 </div>
 
