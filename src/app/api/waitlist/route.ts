@@ -17,7 +17,7 @@ export async function POST(req: Request) {
       return NextResponse.json(
         {
           content: null,
-          message: "Validation error",
+          message: "Failed to add you to the waitlist",
           errors: parsed.error.issues.map((issue) => ({
             field: issue.path.join(".") || "unknown",
             message: issue.message,
@@ -41,7 +41,7 @@ export async function POST(req: Request) {
         {
           content: null,
           message: isDuplicate
-            ? "Email or phone already registered"
+            ? "Email or phone already in the waitlist"
             : error.message,
           errors: null,
         },
@@ -51,18 +51,17 @@ export async function POST(req: Request) {
 
     return NextResponse.json({
       content: data,
-      message: "OK",
+      message: "You have been added to the waitlist",
       errors: null,
     });
   } catch (error) {
     return NextResponse.json(
       {
         content: null,
-        message: "Something went wrong",
+        message: "Failed to add you to the waitlist",
         errors: null,
       },
       { status: 500 },
     );
   }
 }
-

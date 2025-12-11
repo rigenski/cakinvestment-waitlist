@@ -8,13 +8,6 @@ import { Suspense } from "react";
 import "@/styles/globals.css";
 import "@bprogress/core/css";
 
-const fontInter = Inter({
-  variable: "--font-inter",
-  weight: ["400", "500", "600", "700"],
-  subsets: ["latin"],
-  display: "swap",
-});
-
 const fontPoppins = Poppins({
   variable: "--font-poppins",
   weight: ["400", "500", "600", "700"],
@@ -24,27 +17,27 @@ const fontPoppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_FE_URL),
-  title: "Nodewave",
-  description: "Node Solusi Indonesia",
+  title: "CAK Investment Club",
+  description: "Your learning investment platform",
   openGraph: {
-    title: "Nodewave",
-    description: "Node Solusi Indonesia",
-    url: "https://nodewave.id",
+    title: "CAK Investment Club",
+    description: "Your learning investment platform",
+    url: "https://cakinvestmentclub.com/",
     images: [
       {
         url: "/banner.png",
-        alt: "Nodewave",
+        alt: "CAK Investment Club",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nodewave",
-    description: "Node Solusi Indonesia",
+    title: "CAK Investment Club",
+    description: "Your learning investment platform",
     images: [
       {
         url: "/banner.png",
-        alt: "Nodewave",
+        alt: "CAK Investment Club",
       },
     ],
   },
@@ -65,9 +58,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body
-        className={`${fontInter.variable} ${fontPoppins.variable} font-inter antialiased`}
-      >
+      <body className={`${fontPoppins.variable} font-poppins antialiased`}>
         <Suspense fallback={null}>
           <ProgressBar />
         </Suspense>
