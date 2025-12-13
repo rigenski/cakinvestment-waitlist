@@ -316,7 +316,7 @@ export default function Container() {
               </div>
               <div className="flex items-center gap-2">
                 <Button
-                  variant="outline"
+                  variant="secondary"
                   size="sm"
                   onClick={() =>
                     setCurrentPage((prev) => Math.max(1, prev - 1))
@@ -347,7 +347,7 @@ export default function Container() {
                           )}
                           <Button
                             variant={
-                              currentPage === page ? "default" : "outline"
+                              currentPage === page ? "default" : "secondary"
                             }
                             size="sm"
                             onClick={() => setCurrentPage(page)}
@@ -365,7 +365,7 @@ export default function Container() {
                     })}
                 </div>
                 <Button
-                  variant="outline"
+                  variant="secondary"
                   size="sm"
                   onClick={() =>
                     setCurrentPage((prev) =>
