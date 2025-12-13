@@ -1,6 +1,8 @@
 import { authVerifyToken } from "@/services/auth";
 import { TAuthIsLogin, TAuthUser } from "@/stores/auth";
+import { getAdminSession } from "@/utils/admin-session";
 import { getSession } from "@/utils/session";
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import React from "react";
 import Providers from "./_components/providers";
@@ -10,6 +12,33 @@ type TLayoutProps = {
 };
 
 export default async function Layout({ children }: TLayoutProps) {
+  const headersList = await headers();
+  const pathname = headersList.get("x-pathname") || "";
+  const isAdminRoute = pathname.startsWith("/admin");
+
+  // Handle admin routes - hanya cek cookie, tidak verify API
+  if (isAdminRoute) {
+    const adminSession = await getAdminSession();
+
+    if (!adminSession?.isAuthenticated) {
+      redirect("/login");
+    }
+
+    // Admin routes juga perlu Providers untuk React Query
+    return (
+      <Providers
+        auth={{
+          isLogin: false,
+          accessToken: "",
+          user: null,
+        }}
+      >
+        {children}
+      </Providers>
+    );
+  }
+
+  // Handle regular user routes - verify API
   const session = await getSession();
 
   let isLogin: TAuthIsLogin = false;
